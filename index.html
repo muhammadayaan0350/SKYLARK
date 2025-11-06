@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,12 +17,11 @@
       --bg:#05060a;
       --card:#071524;
       --muted:#9aa4b2;
-      --accent:#00d1ff; /* blue */
-      --accent-2:#ffd54a; /* yellow */
-      --accent-3:#6bf5ff;
+      --accent-blue:#00d1ff; /* blue */
+      --accent-yellow:#ffd54a; /* yellow */
+      --accent-cyan:#6bf5ff;
       --glass: rgba(255,255,255,0.03);
       --radius:16px;
-      --accent-bg: linear-gradient(90deg, rgba(0,209,255,0.06), rgba(107,245,255,0.02));
       --cta:#00bcd4;
     }
     *{box-sizing:border-box}
@@ -31,12 +31,12 @@
 
     header{display:flex;justify-content:space-between;align-items:center;gap:12px}
     .logo{display:flex;flex-direction:column}
-    .mark{font-weight:900;color:transparent;background:linear-gradient(90deg,var(--accent),var(--accent-3));-webkit-background-clip:text;background-clip:text;font-size:22px;letter-spacing:1px}
+    .mark{font-weight:900;color:transparent;background:linear-gradient(90deg,var(--accent-blue),var(--accent-cyan));-webkit-background-clip:text;background-clip:text;font-size:22px;letter-spacing:1px}
     .tag{font-size:12px;color:var(--muted);margin-top:2px}
 
     nav.top-nav{display:flex;gap:10px;flex-wrap:wrap}
     nav.top-nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:10px}
-    nav.top-nav a.active{background:var(--accent-bg);color:#e6faff}
+    nav.top-nav a.active{background:linear-gradient(90deg, rgba(0,209,255,0.06), rgba(107,245,255,0.02));color:#e6faff}
 
     /* Cards and layout */
     .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:20px;margin-top:20px;box-shadow:0 6px 18px rgba(2,6,12,0.6);border:1px solid rgba(255,255,255,0.02)}
@@ -47,49 +47,56 @@
     /* Section header with colored line */
     .section-header{display:flex;align-items:center;gap:12px;margin-bottom:10px}
     .section-line{width:54px;height:6px;border-radius:6px;flex-shrink:0;box-shadow:0 3px 10px rgba(0,0,0,0.45)}
-    .section-accent-blue .section-line{background:linear-gradient(90deg,var(--accent),var(--accent-3))}
-    .section-accent-yellow .section-line{background:linear-gradient(90deg,var(--accent-2),rgba(255,214,74,0.7))}
-    .section-header h2{margin:0}
+    .section-accent-blue .section-line{background:linear-gradient(90deg,var(--accent-blue),var(--accent-cyan))}
+    .section-accent-yellow .section-line{background:linear-gradient(90deg,var(--accent-yellow),rgba(255,214,74,0.7))}
 
     /* Feature grid */
     .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
     .feature{position:relative;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.008), rgba(255,255,255,0.006));overflow:hidden;border:1px solid rgba(255,255,255,0.02)}
-    .feature:before{content:'';position:absolute;left:-40px;top:-40px;width:120px;height:120px;background:radial-gradient(circle at 20% 20%, rgba(0,209,255,0.06), transparent 40%);transform:rotate(15deg);opacity:0.9}
+    .feature .left-accent{position:absolute;left:0;top:0;bottom:0;width:8px;border-radius:8px 0 0 8px}
     .feature strong{display:block;margin-bottom:6px}
-
-    /* Highlighted feature variations */
-    .feature.accent{background:linear-gradient(180deg, rgba(0,209,255,0.02), rgba(6,30,40,0.08));border-left:6px solid var(--accent)}
-    .feature.warn{background:linear-gradient(180deg, rgba(255,184,108,0.02), rgba(40,20,10,0.03));border-left:6px solid #ffb86b}
+    .feature.blue .left-accent{background:linear-gradient(180deg,var(--accent-blue),var(--accent-cyan))}
+    .feature.yellow .left-accent{background:linear-gradient(180deg,var(--accent-yellow),#ffb86b)}
 
     /* IO styles */
     .io-row{display:flex;gap:12px;align-items:center;padding:12px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.006));}
-    .io-icon{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--accent),var(--accent-3));color:#031018;font-weight:800}
+    .io-icon{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--accent-blue),var(--accent-cyan));color:#031018;font-weight:800}
     .io-output{text-align:right;min-width:200px}
     .output-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;font-weight:700;background:linear-gradient(90deg,#0ff1d6,#00a6ff);color:#02121a}
 
     /* Metrics */
     .stats-row{display:flex;gap:12px}
     .stat-card{flex:1;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.006));text-align:center}
-    .stat-number{font-size:28px;font-weight:900;color:var(--accent)}
+    .stat-number{font-size:28px;font-weight:900;color:var(--accent-blue)}
 
     /* Map */
-    #coverageMap{width:100%;height:360px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
+    #coverageMap{width:100%;height:420px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
 
     /* Pricing cards */
     .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .price-card{position:relative;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.006));border:1px solid rgba(255,255,255,0.02)}
-    .price-card.best{box-shadow:0 10px 30px rgba(0,209,255,0.08);transform:translateY(-6px);border-left:6px solid var(--accent)}
-    .price-tag{font-size:20px;font-weight:800;margin-top:8px}
+    .price-card{position:relative;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.006));border:1px solid rgba(255,255,255,0.02);display:flex;flex-direction:column;gap:8px}
+    .price-card.best{box-shadow:0 10px 30px rgba(0,209,255,0.08);transform:translateY(-6px);border-left:6px solid var(--accent-blue)}
+    .price-tag{font-size:22px;font-weight:900;color:var(--accent-blue)}
+    .price-card .lead{font-weight:800}
 
     /* Awards badges */
-    .award-badge{padding:8px 12px;border-radius:10px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));border:1px solid rgba(255,255,255,0.02);font-weight:700}
-    .award-badge.primary{background:linear-gradient(90deg,var(--accent),var(--accent-3));color:#02121a}
+    .award-badges{display:flex;gap:12px;flex-wrap:wrap}
+    .award-badge{padding:10px 14px;border-radius:12px;color:#02121a;font-weight:800}
+    .award-badge.a1{background:linear-gradient(90deg,#ffd54a,#ffb86b)}
+    .award-badge.a2{background:linear-gradient(90deg,#6bf5ff,#00d1ff)}
+    .award-badge.a3{background:linear-gradient(90deg,#ff8ef5,#ffbf6b)}
 
     /* Timeline modern */
-    .timeline{display:flex;gap:12px;align-items:center}
-    .timeline-line{height:4px;background:linear-gradient(90deg,var(--accent),var(--accent-3));flex:1;border-radius:4px}
-    .timeline-step{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:8px;min-width:110px;text-align:center;position:relative}
-    .timeline-dot{width:16px;height:16px;border-radius:50%;background:var(--accent);box-shadow:0 6px 18px rgba(0,0,0,0.5);margin:0 12px}
+    .timeline-wrap{position:relative;padding:28px 12px}
+    .timeline-line{position:absolute;left:48px;right:48px;top:50%;height:4px;background:linear-gradient(90deg,var(--accent-blue),var(--accent-cyan));transform:translateY(-50%);border-radius:4px}
+    .timeline-items{display:flex;gap:18px;align-items:center;position:relative;padding-left:0;margin:0}
+    .timeline-item{position:relative;width:160px;text-align:left}
+    .timeline-dot{position:absolute;left:-64px;top:50%;transform:translateY(-50%);width:18px;height:18px;border-radius:50%;background:var(--accent-blue);box-shadow:0 8px 20px rgba(0,0,0,0.6)}
+    .timeline-item .box{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.02)}
+
+    /* Partners/Trusted style */
+    .partners{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    .partner-card{min-width:160px;height:64px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));display:flex;align-items:center;justify-content:center;font-weight:900;color:var(--accent-blue)}
 
     /* Buttons */
     .btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer}
@@ -100,21 +107,20 @@
 
     /* Hero banner accent */
     #hero{position:relative;overflow:hidden}
-    #hero .eyebrow{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(0,209,255,0.08);color:var(--accent);font-weight:700;margin-bottom:10px}
+    #hero .eyebrow{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg, rgba(0,209,255,0.08), rgba(255,214,74,0.06));color:var(--accent-blue);font-weight:700;margin-bottom:10px}
 
     /* Testimonials */
     #testimonialWrap .testimonial-slide{transition:transform 450ms cubic-bezier(.2,.9,.2,1);}    
     #testimonialWrap .testimonial{padding:12px}
 
     /* Small screens */
-    @media(max-width:900px){.grid-3{grid-template-columns:1fr}.stats-row{flex-direction:column}.timeline{flex-direction:column;align-items:flex-start}.timeline-line{display:none}}
+    @media(max-width:900px){.grid-3{grid-template-columns:1fr}.stats-row{flex-direction:column}.timeline-wrap{padding:18px}.timeline-line{left:24px;right:24px}.timeline-item{width:140px}.price-tag{font-size:18px}}
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
       <div class="logo" aria-hidden="false">
-        <!-- cleaned up logo: no stray symbols -->
         <div class="mark">SKYLARK</div>
         <div class="tag">AI Emergency Response Drones</div>
       </div>
@@ -141,13 +147,13 @@
         <div class="section-header section-accent-blue"><div class="section-line"></div><h2>Key Features</h2></div>
         <p class="small">Designed for speed, safety, and operational clarity.</p>
         <div class="grid-3" style="margin-top:12px">
-          <div class="feature accent"><strong>Rapid Autonomous Deployment</strong><div class="small">Launch in seconds and start streaming actionable data.</div></div>
-          <div class="feature"><strong>AI Victim Detection</strong><div class="small">Thermal & visual AI pinpoint victims and prioritize rescue routes.</div></div>
-          <div class="feature warn"><strong>Payload Delivery</strong><div class="small">Deliver defibrillators, first-aid kits and comms.</div></div>
+          <div class="feature blue"><div class="left-accent"></div><strong>Rapid Autonomous Deployment</strong><div class="small">Launch in seconds and start streaming actionable data.</div></div>
+          <div class="feature blue"><div class="left-accent"></div><strong>AI Victim Detection</strong><div class="small">Thermal & visual AI pinpoint victims and prioritize rescue routes.</div></div>
+          <div class="feature yellow"><div class="left-accent"></div><strong>Payload Delivery</strong><div class="small">Deliver defibrillators, first-aid kits and comms.</div></div>
 
-          <div class="feature"><strong>3D Mapping & LiDAR</strong><div class="small">Real-time terrain and structure mapping.</div></div>
-          <div class="feature accent"><strong>Hazard Sensing</strong><div class="small">Gas, smoke and chemical detection.</div></div>
-          <div class="feature"><strong>Command Integration</strong><div class="small">Seamless dispatch and hospital coordination.</div></div>
+          <div class="feature blue"><div class="left-accent"></div><strong>3D Mapping & LiDAR</strong><div class="small">Real-time terrain and structure mapping.</div></div>
+          <div class="feature blue"><div class="left-accent"></div><strong>Hazard Sensing</strong><div class="small">Gas, smoke and chemical detection.</div></div>
+          <div class="feature blue"><div class="left-accent"></div><strong>Command Integration</strong><div class="small">Seamless dispatch and hospital coordination.</div></div>
         </div>
       </section>
 
@@ -155,9 +161,9 @@
         <div class="section-header section-accent-yellow"><div class="section-line"></div><h2>How Skylark Solves the Problem</h2></div>
         <p class="small">Instant situational awareness, prioritized victim detection, and life-saving payloads.</p>
         <div class="grid-3" style="margin-top:12px">
-          <div class="feature"><strong>Instant Assessment</strong><div class="small">Scan & report in under 5 minutes.</div></div>
-          <div class="feature accent"><strong>Prioritized Response</strong><div class="small">AI ranks severity for responders.</div></div>
-          <div class="feature"><strong>Early Aid</strong><div class="small">Deliver defibrillators and survival kits.</div></div>
+          <div class="feature blue"><div class="left-accent"></div><strong>Instant Assessment</strong><div class="small">Scan & report in under 5 minutes. — Full sensor fusion + rapid prioritization.</div></div>
+          <div class="feature yellow"><div class="left-accent"></div><strong>Prioritized Response</strong><div class="small">AI ranks severity for responders with actionable routing overlays.</div></div>
+          <div class="feature blue"><div class="left-accent"></div><strong>Early Aid</strong><div class="small">Deliver defibrillators and survival kits while teams mobilize.</div></div>
         </div>
       </section>
 
@@ -184,30 +190,31 @@
 
       <section id="partners" class="card section-accent-yellow">
         <div class="section-header section-accent-yellow"><div class="section-line"></div><h2>Trusted by responders</h2></div>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
-          <div style="width:160px;height:64px;border-radius:8px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(0,209,255,0.03));display:flex;align-items:center;justify-content:center">NDRF</div>
-          <div style="width:160px;height:64px;border-radius:8px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(107,245,255,0.02));display:flex;align-items:center;justify-content:center">Bengaluru Fire Dept</div>
-          <div style="width:160px;height:64px;border-radius:8px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(0,100,255,0.02));display:flex;align-items:center;justify-content:center">AI4Good</div>
+        <div class="partners" style="margin-top:12px">
+          <div class="partner-card">NDRF</div>
+          <div class="partner-card">Bengaluru Fire Dept</div>
+          <div class="partner-card">AI4Good</div>
         </div>
+        <p class="small" style="margin-top:8px;color:var(--muted)">Deployed with local partners to accelerate response in high-risk zones.</p>
       </section>
 
       <section id="pricing" class="card section-accent-blue">
         <div class="section-header section-accent-blue"><div class="section-line"></div><h2>Deployment & Pricing</h2></div>
         <div class="pricing-grid" style="margin-top:12px">
           <div class="price-card">
-            <div style="font-weight:800">Starter</div>
+            <div class="lead">Starter</div>
             <div class="price-tag">₹2,50,000</div>
             <div class="small">Local teams — quick deploy kit</div>
             <ul class="small" style="margin-top:8px;padding-left:18px"><li>2 drones + base</li><li>1-year support</li><li>Training session</li></ul>
           </div>
           <div class="price-card best">
-            <div style="font-weight:800">Pro <span style="font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);margin-left:8px">Most popular</span></div>
+            <div class="lead">Pro <span style="font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);margin-left:8px">Most popular</span></div>
             <div class="price-tag">₹10,00,000</div>
             <div class="small">City-scale — rapid response fleet</div>
             <ul class="small" style="margin-top:8px;padding-left:18px"><li>10 drones + ops center</li><li>2-year SLA</li><li>Integration with dispatch</li></ul>
           </div>
           <div class="price-card">
-            <div style="font-weight:800">Enterprise</div>
+            <div class="lead">Enterprise</div>
             <div class="price-tag">Custom</div>
             <div class="small">Nationwide — tailored</div>
             <ul class="small" style="margin-top:8px;padding-left:18px"><li>Custom fleet & training</li><li>On-site engineers</li><li>Dedicated support</li></ul>
@@ -244,27 +251,28 @@
       <section id="coverage" class="card section-accent-blue">
         <div class="section-header section-accent-blue"><div class="section-line"></div><h2>Global Coverage Map</h2></div>
         <div id="coverageMap"></div>
+        <p class="small" style="margin-top:8px;color:var(--muted)">Map shows active deployment hotspots. If the map is blank, please check network or allow map tiles to load (OpenStreetMap).</p>
       </section>
 
       <section id="awards" class="card section-accent-yellow">
         <div class="section-header section-accent-yellow"><div class="section-line"></div><h2>Awards & Recognition</h2></div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
-          <div class="award-badge primary">🏆 AI4Good Innovation 2025</div>
-          <div class="award-badge">🌐 Partnered with ISRO</div>
-          <div class="award-badge">🎖️ UN SDG 9 Contributor</div>
+        <div class="award-badges" style="margin-top:8px">
+          <div class="award-badge a1">🏆 AI4Good Innovation 2025</div>
+          <div class="award-badge a2">🌐 Partnered with ISRO</div>
+          <div class="award-badge a3">🎖️ UN SDG 9 Contributor</div>
         </div>
       </section>
 
       <section id="timeline" class="card section-accent-blue">
         <div class="section-header section-accent-blue"><div class="section-line"></div><h2>Timeline</h2></div>
-        <div style="display:flex;align-items:center;gap:12px;margin-top:12px">
-          <div class="timeline-step"><strong>2023</strong><div class="small">Concept born</div></div>
-          <div class="timeline-dot" aria-hidden="true"></div>
-          <div class="timeline-step"><strong>2024</strong><div class="small">Prototype launched</div></div>
-          <div class="timeline-dot" aria-hidden="true"></div>
-          <div class="timeline-step"><strong>2025</strong><div class="small">First deployment in floods</div></div>
-          <div class="timeline-dot" aria-hidden="true"></div>
-          <div class="timeline-step"><strong>2026</strong><div class="small">Partnered with national agencies</div></div>
+        <div class="timeline-wrap" style="margin-top:12px">
+          <div class="timeline-line"></div>
+          <ul class="timeline-items">
+            <li class="timeline-item"><div class="timeline-dot"></div><div class="box"><strong>2023</strong><div class="small">Concept born</div></div></li>
+            <li class="timeline-item"><div class="timeline-dot" style="background:var(--accent-yellow)"></div><div class="box"><strong>2024</strong><div class="small">Prototype launched</div></div></li>
+            <li class="timeline-item"><div class="timeline-dot" style="background:linear-gradient(90deg,var(--accent-blue),var(--accent-cyan))"></div><div class="box"><strong>2025</strong><div class="small">First deployment in floods</div></div></li>
+            <li class="timeline-item"><div class="timeline-dot" style="background:linear-gradient(90deg,#ff8ef5,#ffbf6b)"></div><div class="box"><strong>2026</strong><div class="small">Partnered with national agencies</div></div></li>
+          </ul>
         </div>
       </section>
 
@@ -274,8 +282,8 @@
           <div>
             <strong>Skylark — AI Emergency Response</strong>
             <div class="small">Station: Bangalore, India</div>
-            <div>Phone: <a href="tel:+919000000000" style="color:var(--accent)">+91 90000 00000</a></div>
-            <div>Email: <a href="mailto:hello@skylark.ai" style="color:var(--accent)">hello@skylark.ai</a></div>
+            <div>Phone: <a href="tel:+919000000000" style="color:var(--accent-blue)">+91 90000 00000</a></div>
+            <div>Email: <a href="mailto:hello@skylark.ai" style="color:var(--accent-blue)">hello@skylark.ai</a></div>
           </div>
           <div style="flex:1;min-width:260px">
             <form id="contactForm">
@@ -298,213 +306,94 @@
 
   </div>
 
-  <button id="backTop" style="position:fixed;right:20px;bottom:20px;width:48px;height:48px;border-radius:12px;background:linear-gradient(90deg,var(--accent),var(--accent-3));border:0;display:none">↑</button>
+  <button id="backTop" style="position:fixed;right:20px;bottom:20px;width:48px;height:48px;border-radius:12px;background:linear-gradient(90deg,var(--accent-blue),var(--accent-cyan));border:0;display:none">↑</button>
 
   <script>
-  // Single consolidated script — cleaned and with clearer structure to avoid accidental syntax issues.
   (function () {
-    // Helpers
+    // small helper funcs
     function qs(sel) { return document.querySelector(sel); }
     function qsa(sel) { return Array.from(document.querySelectorAll(sel)); }
 
-    // Year
-    var yearEl = qs('#year');
-    if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
+    // year
+    var yearEl = qs('#year'); if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // Smooth scroll for nav links
-    qsa('.nav-link').forEach(function (a) {
-      a.addEventListener('click', function (e) {
-        e.preventDefault();
-        var id = this.getAttribute('href');
-        var el = qs(id);
-        if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-      });
-    });
+    // smooth nav
+    qsa('.nav-link').forEach(function (a) { a.addEventListener('click', function (e) { e.preventDefault(); var id = this.getAttribute('href'); var el = qs(id); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }); });
 
-    // Charts - professional look
+    // charts (professional gradients + rounded bars)
     function initCharts() {
       try {
         var ctxR = qs('#chartResponse');
         if (ctxR) {
           var gR = ctxR.getContext('2d');
-          var grad1 = gR.createLinearGradient(0, 0, 0, 300);
-          grad1.addColorStop(0, 'rgba(255,159,64,0.9)');
-          grad1.addColorStop(1, 'rgba(255,159,64,0.2)');
-          var grad2 = gR.createLinearGradient(0, 0, 0, 300);
-          grad2.addColorStop(0, 'rgba(0,209,255,0.9)');
-          grad2.addColorStop(1, 'rgba(0,209,255,0.12)');
+          var grad1 = gR.createLinearGradient(0, 0, 0, 300); grad1.addColorStop(0, 'rgba(255,159,64,0.9)'); grad1.addColorStop(1, 'rgba(255,159,64,0.18)');
+          var grad2 = gR.createLinearGradient(0, 0, 0, 300); grad2.addColorStop(0, 'rgba(0,209,255,0.95)'); grad2.addColorStop(1, 'rgba(0,209,255,0.12)');
 
           new Chart(gR, {
             type: 'bar',
-            data: {
-              labels: ['Traditional', 'Skylark'],
-              datasets: [{ label: 'Response time (min)', data: [25, 1.8], backgroundColor: [grad1, grad2], borderRadius: 12, barThickness: 44 }]
-            },
-            options: {
-              responsive: true,
-              maintainAspectRatio: false,
-              plugins: {
-                legend: { display: false },
-                tooltip: {
-                  callbacks: {
-                    label: function (ctx) { return ctx.dataset.label + ': ' + ctx.parsed.y + ' min'; }
-                  }
-                }
-              },
-              scales: {
-                y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { stepSize: 5 } },
-                x: { grid: { display: false } }
-              }
-            }
+            data: { labels: ['Traditional', 'Skylark'], datasets: [{ data: [25, 1.8], backgroundColor: [grad1, grad2], borderRadius: 12, barThickness: 44 }] },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { stepSize: 5 } }, x: { grid: { display: false } } } }
           });
         }
 
         var ctxL = qs('#chartLives');
         if (ctxL) {
           var gL = ctxL.getContext('2d');
-          var gradA = gL.createLinearGradient(0, 0, 0, 300);
-          gradA.addColorStop(0, 'rgba(54,162,235,0.88)');
-          gradA.addColorStop(1, 'rgba(54,162,235,0.12)');
-          var gradB = gL.createLinearGradient(0, 0, 0, 300);
-          gradB.addColorStop(0, 'rgba(0,200,120,0.9)');
-          gradB.addColorStop(1, 'rgba(0,200,120,0.12)');
+          var gradA = gL.createLinearGradient(0, 0, 0, 300); gradA.addColorStop(0, 'rgba(54,162,235,0.9)'); gradA.addColorStop(1, 'rgba(54,162,235,0.12)');
+          var gradB = gL.createLinearGradient(0, 0, 0, 300); gradB.addColorStop(0, 'rgba(0,200,120,0.9)'); gradB.addColorStop(1, 'rgba(0,200,120,0.12)');
 
           new Chart(gL, {
             type: 'bar',
-            data: {
-              labels: ['Without', 'With'],
-              datasets: [{ label: 'Lives saved/1000', data: [40, 68], backgroundColor: [gradA, gradB], borderRadius: 12, barThickness: 44 }]
-            },
-            options: {
-              responsive: true,
-              maintainAspectRatio: false,
-              plugins: {
-                legend: { display: false },
-                tooltip: {
-                  callbacks: {
-                    label: function (ctx) { return ctx.dataset.label + ': ' + ctx.parsed.y + ' survivors/1000'; }
-                  }
-                }
-              },
-              scales: { y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.03)' } }, x: { grid: { display: false } } }
-            }
+            data: { labels: ['Without', 'With'], datasets: [{ data: [40, 68], backgroundColor: [gradA, gradB], borderRadius: 12, barThickness: 44 }] },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.03)' } }, x: { grid: { display: false } } } }
           });
         }
       } catch (e) { console.warn('Charts init failed', e); }
     }
 
-    // Counters animation
+    // counters
     function initCounters() {
       var counters = qsa('.stat-number');
-      var obs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            var el = entry.target;
-            if (el.dataset.done) { return; }
-            el.dataset.done = '1';
-
-            var target = parseFloat(el.getAttribute('data-target')) || 0;
-            var isFloat = target % 1 !== 0;
-            var current = 0;
-            var steps = 80;
-            var step = target / steps;
-
-            var iv = setInterval(function () {
-              current += step;
-              if ((!isFloat && current >= target) || (isFloat && parseFloat(current.toFixed(1)) >= target)) {
-                el.textContent = isFloat ? target.toFixed(1) : Math.round(target).toLocaleString();
-                clearInterval(iv);
-              } else {
-                el.textContent = isFloat ? current.toFixed(1) : Math.round(current).toLocaleString();
-              }
-            }, 18);
-          }
-        });
-      }, { threshold: 0.4 });
-
+      var obs = new IntersectionObserver(function (entries) { entries.forEach(function (entry) { if (entry.isIntersecting) { var el = entry.target; if (el.dataset.done) return; el.dataset.done = '1'; var target = parseFloat(el.getAttribute('data-target')) || 0; var isFloat = target % 1 !== 0; var current = 0; var steps = 80; var step = target / steps; var iv = setInterval(function () { current += step; if ((!isFloat && current >= target) || (isFloat && parseFloat(current.toFixed(1)) >= target)) { el.textContent = isFloat ? target.toFixed(1) : Math.round(target).toLocaleString(); clearInterval(iv); } else { el.textContent = isFloat ? current.toFixed(1) : Math.round(current).toLocaleString(); } }, 18); } }); }, { threshold: 0.4 });
       counters.forEach(function (c) { obs.observe(c); });
     }
 
-    // Leaflet map
+    // map with external reference so we can invalidate size when user navigates to the section
+    var skylarkMap = null;
     function initMap() {
       try {
-        if (typeof L === 'undefined') { return; }
-        var mapEl = qs('#coverageMap');
-        if (!mapEl) { return; }
-        var map = L.map(mapEl).setView([20.5937, 78.9629], 4);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }).addTo(map);
-        var locations = [
-          { name: 'Bangalore', coords: [12.9716, 77.5946], info: '312 rescues' },
-          { name: 'Mumbai', coords: [19.0760, 72.8777], info: '524 rescues' },
-          { name: 'Chennai', coords: [13.0827, 80.2707], info: '218 rescues' },
-          { name: 'Kathmandu', coords: [27.7172, 85.3240], info: '46 rescues' }
-        ];
-
-        locations.forEach(function (loc) {
-          var m = L.circleMarker(loc.coords, { radius: 10, fillColor: '#00f1d6', color: '#6bf5ff', weight: 1, fillOpacity: 0.95 }).addTo(map);
-          m.bindPopup('<strong>' + loc.name + '</strong><br/>' + loc.info);
-        });
-
-        setTimeout(function () { try { map.invalidateSize(); } catch (e) { } }, 300);
+        if (typeof L === 'undefined') return;
+        var mapEl = qs('#coverageMap'); if (!mapEl) return;
+        skylarkMap = L.map(mapEl).setView([20.5937, 78.9629], 4);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }).addTo(skylarkMap);
+        var locations = [ { name: 'Bangalore', coords: [12.9716, 77.5946], info: '312 rescues' }, { name: 'Mumbai', coords: [19.0760, 72.8777], info: '524 rescues' }, { name: 'Chennai', coords: [13.0827, 80.2707], info: '218 rescues' }, { name: 'Kathmandu', coords: [27.7172, 85.3240], info: '46 rescues' } ];
+        locations.forEach(function (loc) { var m = L.circleMarker(loc.coords, { radius: 10, fillColor: '#00f1d6', color: '#6bf5ff', weight: 1, fillOpacity: 0.95 }).addTo(skylarkMap); m.bindPopup('<strong>' + loc.name + '</strong><br/>' + loc.info); });
+        setTimeout(function () { try { skylarkMap.invalidateSize(); } catch (e) { } }, 300);
       } catch (e) { console.warn('Map init failed', e); }
     }
 
-    // Testimonials autoplay
-    function initTestimonials() {
-      var slides = qsa('#testimonialWrap .testimonial-slide');
-      if (!slides.length) { return; }
-      slides.forEach(function (s, i) { s.style.transform = 'translateX(' + (i * 100) + '%)'; });
-      var idx = 0;
-      setInterval(function () {
-        idx = (idx + 1) % slides.length;
-        slides.forEach(function (s, i) { s.style.transform = 'translateX(' + ((i - idx) * 100) + '%)'; });
-      }, 4000);
-    }
+    // If user navigates directly to #coverage later, ensure map resizes
+    window.addEventListener('hashchange', function () { if (location.hash === '#coverage' && skylarkMap) { setTimeout(function () { try { skylarkMap.invalidateSize(); skylarkMap.setView([20.5937,78.9629],4); } catch (e) { } }, 250); } });
+    // also on tab focus/visibilitychange
+    document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'visible' && skylarkMap) { setTimeout(function () { try { skylarkMap.invalidateSize(); } catch (e) { } }, 250); } });
 
-    // Back to top
-    var back = qs('#backTop');
-    window.addEventListener('scroll', function () { if (window.scrollY > 300) { back.style.display = 'flex'; } else { back.style.display = 'none'; } });
-    back.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    // testimonials autoplay
+    function initTestimonials() { var slides = qsa('#testimonialWrap .testimonial-slide'); if (!slides.length) return; slides.forEach(function (s, i) { s.style.transform = 'translateX(' + (i * 100) + '%)'; }); var idx = 0; setInterval(function () { idx = (idx + 1) % slides.length; slides.forEach(function (s, i) { s.style.transform = 'translateX(' + ((i - idx) * 100) + '%)'; }); }, 4000); }
 
-    // Scrollspy - highlight nav
-    function initScrollSpy() {
-      var links = qsa('nav.top-nav .nav-link');
-      var secs = links.map(function (a) { return qs(a.getAttribute('href')); }).filter(Boolean);
+    // back to top
+    var back = qs('#backTop'); window.addEventListener('scroll', function () { if (window.scrollY > 300) { back.style.display = 'flex'; } else { back.style.display = 'none'; } }); if (back) back.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
-      function setActive() {
-        var scrollPos = window.scrollY + window.innerHeight / 3;
-        var current = secs[0];
-        secs.forEach(function (s) { if (s.offsetTop <= scrollPos) { current = s; } });
-        links.forEach(function (a) { a.classList.remove('active'); });
-        var act = links.find(function (a) { return qs(a.getAttribute('href')) === current; });
-        if (act) { act.classList.add('active'); }
-      }
+    // scrollspy
+    function initScrollSpy() { var links = qsa('nav.top-nav .nav-link'); var secs = links.map(function (a) { return qs(a.getAttribute('href')); }).filter(Boolean); function setActive() { var scrollPos = window.scrollY + window.innerHeight / 3; var current = secs[0]; secs.forEach(function (s) { if (s.offsetTop <= scrollPos) current = s; }); links.forEach(function (a) { a.classList.remove('active'); }); var act = links.find(function (a) { return qs(a.getAttribute('href')) === current; }); if (act) act.classList.add('active'); } window.addEventListener('scroll', setActive); setActive(); }
 
-      window.addEventListener('scroll', setActive);
-      setActive();
-    }
-
-    // Contact form (mailto placeholder) — build body safely without multiline template literals to avoid environment issues
-    var form = qs('#contactForm');
-    if (form) {
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var name = qs('#name').value || '';
-        var phone = qs('#phone').value || '';
-        var org = qs('#org').value || '';
-        var msg = qs('#message').value || '';
-        var subject = encodeURIComponent('Skylark Demo Request — ' + org);
-        var bodyText = 'Name: ' + name + '
+    // contact mailto
+    var form = qs('#contactForm'); if (form) { form.addEventListener('submit', function (e) { e.preventDefault(); var name = qs('#name').value || ''; var phone = qs('#phone').value || ''; var org = qs('#org').value || ''; var msg = qs('#message').value || ''; var subject = encodeURIComponent('Skylark Demo Request — ' + org); var body = encodeURIComponent('Name: ' + name + '
 Phone: ' + phone + '
 Org: ' + org + '
 
-' + msg;
-        var body = encodeURIComponent(bodyText);
-        window.location.href = 'mailto:hello@skylark.ai?subject=' + subject + '&body=' + body;
-      });
-    }
+' + msg); window.location.href = 'mailto:hello@skylark.ai?subject=' + subject + '&body=' + body; }); }
 
-    // DOM ready
+    // init on DOMContentLoaded
     document.addEventListener('DOMContentLoaded', function () { initCharts(); initCounters(); initMap(); initTestimonials(); initScrollSpy(); });
   }());
   </script>
